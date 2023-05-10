@@ -17,4 +17,4 @@ COPY . .
 RUN npm run build
 
 # 開発サーバーの起動
-CMD ["npm",  "start"]
+CMD ["npm", "run", "dev"]
