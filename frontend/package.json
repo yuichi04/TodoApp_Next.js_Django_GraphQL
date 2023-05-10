@@ -47,8 +47,8 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "echo 'Running Prettier...' && prettier --write",
-      "echo 'Running ESLint...' && eslint --fix",
+      "prettier --write",
+      "eslint --fix",
       "git add"
     ]
   }
