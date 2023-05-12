@@ -17,9 +17,11 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "graphene_django",
     "todo_app",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -88,5 +90,11 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # GraphQLの設定
 GRAPHENE = {
     # どのスキーマを参照するか設定
-    "SCHEMA": "todo_app.schema.schema"
+    "SCHEMA": "todo_app.schema.schema",
+    # ミドルウェアの設定
+    "MIDDLEWARE": [
+        "django.contrib.auth.middleware.AuthenticationMiddleware",
+    ],
 }
+
+CORS_ALLOWED_ORIGINS = ["http://localhost:3000"]
