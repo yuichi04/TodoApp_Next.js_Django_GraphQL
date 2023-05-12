@@ -1,0 +1,23 @@
+# 既に存在する出力ファイルを上書きするかどうか
+overwrite: true
+
+# GraphQLサーバーのエンドポイントのURL（ここで指定したURLからスキーマの定義を取得する）
+schema: 'http://localhost:8000/graphql/'
+
+# GraphQLの操作（クエリ、ミューテーション、サブスクリプション）が含まれるファイルのパス
+documents: 'src/**/*.graphql'
+
+# 生成するファイルとその設定を定義
+generates:
+  # 生成される型定義とReactフックを含むファイルの出力先を指定
+  src/lib/graphql/generated/graphql.tsx:
+    # 使用するプラグインを指定。これらのプラグインによって、特定の形式のコードが生成される
+    plugins:
+      - 'typescript' # TypeScriptの型定義を生成
+      - 'typescript-operations' # GraphQL操作（クエリ、ミューテーション、サブスクリプション）の型定義を生成
+      - 'typescript-react-apollo' # Apollo ClientのReactフックを生成
+    # 各プラグインの設定を定義
+    config:
+      withHooks: true # Apollo ClientのReactフックを生成する
+      withHOC: false # Apollo Clientの高階コンポーネント（HOC）を生成しない
+      withComponents: false # Apollo Clientのコンポーネントを生成しない。以前のApollo Clientのバージョンでは使用されていたが、現在はフックが主流
