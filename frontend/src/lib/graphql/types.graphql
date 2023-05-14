@@ -1,0 +1,10 @@
+schema {
+  query: RootQuery
+  mutation: RootMutation
+}
+
+type CreateTaskInput {
+  title: String!
+  description: String
+  completed: Boolean
+}
