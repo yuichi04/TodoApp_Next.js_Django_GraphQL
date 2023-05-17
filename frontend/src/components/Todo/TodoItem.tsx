@@ -3,7 +3,7 @@ import {
   BaseCheckbox,
   BaseIconButton,
   BaseTypography,
-} from '@/components/atoms'
+} from '@/components/uikit'
 import { TaskType } from '@/lib/graphql/generated/graphql'
 import DeleteIcon from '@mui/icons-material/Delete'
 import EditIcon from '@mui/icons-material/Edit'
@@ -21,11 +21,11 @@ const TodoItem: FC<TodoItemProps> = (props) => {
         <BaseTypography>{title}</BaseTypography>
       </div>
       <div className="flex items-center justify-between space-x-1">
-        <BaseIconButton color="primary">
-          <EditIcon />
+        <BaseIconButton color="primary" size="large">
+          <EditIcon fontSize="large" />
         </BaseIconButton>
-        <BaseIconButton>
-          <DeleteIcon />
+        <BaseIconButton size="large">
+          <DeleteIcon fontSize="large" />
         </BaseIconButton>
       </div>
     </div>
